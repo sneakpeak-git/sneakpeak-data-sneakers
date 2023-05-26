@@ -1,0 +1,20 @@
+{
+  "name": "sneak-sneaker-api",
+  "version": "1.0.0",
+  "description": "The SneakPeak API for sneaker data storage.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Aleksa Bandic",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.3.2",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

@@ -1,3 +1,6 @@
+#Private credentials file
+credentials.js
+
 # Logs
 logs
 *.log
