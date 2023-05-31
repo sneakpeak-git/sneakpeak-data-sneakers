@@ -5,7 +5,8 @@ const { fBold } = require("../utilities/textFormatter");
 const sequelize = new Sequelize(credentials.database, credentials.username, credentials.password, {
     host: credentials.host,
     port: credentials.port,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    logging: false
 });
 
 sequelize.query('select * from sneakers').then(() => {

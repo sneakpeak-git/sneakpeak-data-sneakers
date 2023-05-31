@@ -46,7 +46,7 @@ function resetCredentials() {
           console.error(err);
           return;
         }
-        console.log('🔄', fBold('Database credentials are now reset!'), '\nPlease restart the app by typing', fBold('\'rs\''), 'to initialize setup.\n');
+        console.log('🔄', fBold('Database credentials are now reset!'), '\nSetup will run on next boot.\n');
     });
 }
 

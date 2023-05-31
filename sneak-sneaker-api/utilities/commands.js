@@ -23,7 +23,7 @@ mutableStdout.muted = true;
 rl.on('line', (input) => {
     console.log();
     if(input === 'help' || input === 'h') {
-        console.log('📖', fBold('Available commands:\n\n'), fBold('\'rs\''), '- Reboot the server\n', fBold('\'dbreset\''), '- Reset database credentials\n', fBold('\'git\''), '- Display the project GitHub repository link\n', fBold('\'help\''), 'or', fBold('\'h\''), '- Show this help dialog\n');
+        console.log('📖', fBold('Available commands:\n\n'), fBold('\'rs\''), '- Reboot the server (dev)\n', fBold('\'dbreset\''), '- Reset database credentials (dev)\n', fBold('\'git\''), '- Display the project GitHub repository link\n', fBold('\'help\''), 'or', fBold('\'h\''), '- Show this help dialog\n');
     }
     else if(input === 'git') {
         console.log('📦', fBold('Sneaker API git repository:'), '\nhttps://github.com/sneakpeak-git/sneakpeak-data-sneakers\n');
@@ -31,9 +31,7 @@ rl.on('line', (input) => {
     else if(input === 'dbreset') {
         resetCredentials();
     }
-    else if(input === 'rs') {
-        console.log(fBold('Restarting app...\n'));
-    }
+    else if(input === 'rs') {}
     else
         console.log('❌', fBold('Command not found'), '\n');
 });

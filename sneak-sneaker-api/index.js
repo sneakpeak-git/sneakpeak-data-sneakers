@@ -1,5 +1,6 @@
 const splashScreen = require('./utilities/splashScreen');
 const { getCredentials } = require('./utilities/credentialsManager');
+const { fColor} = require("./utilities/textFormatter");
 
 async function startServer() {
     await getCredentials();
@@ -7,7 +8,7 @@ async function startServer() {
     const express = require('express');
     const morgan = require('morgan');
     const commands = require('./utilities/commands');
-    const Sneaker = require('./database/sneaker');
+    const {Sneaker, Image} = require('./database/sneaker');
     const app = express();
 
     app.use(morgan('dev'));
@@ -17,10 +18,15 @@ async function startServer() {
     });
     
     app.get('/sneakers', (req, res) => {
-        Sneaker.findAll()
-          .then(sneakers => res.json(sneakers))
-          .catch(err => {
-            console.error(err);
+        Sneaker.findAll({
+            include: [Image]
+        }).then(sneakers => {
+            res.json(sneakers)
+        }).catch(err => {
+            if(err.toString().includes('HostNotFoundError'))
+                console.error(fColor('Could not connect to database', 'red'));
+            else
+              console.error(err);
             res.status(500).json({ message: 'An error occurred' });
           });
       });
