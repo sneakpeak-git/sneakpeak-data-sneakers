@@ -8,8 +8,11 @@ async function startServer() {
     const express = require('express');
     const morgan = require('morgan');
     const commands = require('./utilities/commands');
-    const {Sneaker, Image} = require('./database/sneaker');
+    const {Sneaker, Image, InsertSamples} = require('./database/sneaker');
     const app = express();
+
+    //if db is empty, insert sample data
+    InsertSamples();
 
     app.use(morgan('dev'));
     

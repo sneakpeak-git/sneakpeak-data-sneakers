@@ -23,8 +23,7 @@ async function getCredentials() {
 
         const host = await getUserInput('Host (empty for localhost): ');
         const port = await getUserInput('\nPort (empty for 3306): ');
-        var schema = await getUserInput('\nSchema (empty for sneakpeak): ');
-        if (schema === '') schema = 'sneakpeak';
+        var schema = 'sneakpeak';
         const username = await getUserInput('\nUsername: ');
         const password = await getUserInput('\nPassword: ');
 
