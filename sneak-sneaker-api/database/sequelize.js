@@ -25,7 +25,6 @@ sequelize.query('select * from sneakers').then(() => {
     }
 }).finally(() => {
     console.log('\nIf you are in a dev environment,\ntype', fBold('\'help\''), 'for more information\n');
-    console.log(credentials.host + ':' + credentials.port);
 });
 
 module.exports = sequelize;
