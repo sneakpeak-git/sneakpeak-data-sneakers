@@ -1,8 +1,8 @@
 const splashScreen = require('./utilities/splashScreen');
 const { getCredentials } = require('./utilities/credentialsManager');
-const { fColor} = require("./utilities/textFormatter");
+const { fColor } = require("./utilities/textFormatter");
 
-async function startServer() {
+async function createServer() {
     await getCredentials();
 
     const express = require('express');
@@ -17,7 +17,7 @@ async function startServer() {
     app.use(morgan('dev'));
     
     app.get('/', (req, res) => {
-        res.send('The API is up and running! GET /sneakers to retreive the sneaker list.');
+        res.send('The API is up and running! GET /sneakers to retrieve the sneaker list.');
     });
     
     app.get('/sneakers', (req, res) => {
@@ -29,14 +29,22 @@ async function startServer() {
             if(err.toString().includes('HostNotFoundError'))
                 console.error(fColor('Could not connect to database', 'red'));
             else
-              console.error(err);
+                console.error(err);
             res.status(500).json({ message: 'An error occurred' });
-          });
-      });
-    
-    app.listen(3000, () => {
-        console.log(`Server running on port 3000\n`);
+        });
     });
+    
+    return app;
 }
 
-startServer();
+if (require.main === module) {
+    (async () => {
+        const server = await createServer();
+        server.listen(3000, () => {
+            console.log(`Server running on port 3000\n`);
+        });
+    })();
+}
+
+module.exports = createServer;
+

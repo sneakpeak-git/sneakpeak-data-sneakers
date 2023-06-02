@@ -4,7 +4,8 @@
   "description": "The SneakPeak API for sneaker data storage.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "mocha --exit ./test/*.js"
   },
   "author": "Aleksa Bandic",
   "license": "MIT",
@@ -15,6 +16,9 @@
     "sequelize": "^6.31.1"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.22"
   }
 }
