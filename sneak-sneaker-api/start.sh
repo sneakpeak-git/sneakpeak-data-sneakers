@@ -8,6 +8,8 @@ module.exports = {
 }
 EOF
 
+yarn install
+
 node ./utilities/dbOnlineTest.js
 
 yarn start
