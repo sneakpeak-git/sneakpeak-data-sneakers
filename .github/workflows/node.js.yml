@@ -23,6 +23,8 @@ jobs:
     - name: Install dependencies
       run: yarn install
       working-directory: ./sneak-sneaker-api  
+    - name: Sleep
+      run: sleep 15
     - name: Run tests
       run: yarn test
       working-directory: ./sneak-sneaker-api
