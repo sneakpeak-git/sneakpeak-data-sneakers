@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Build and run API Docker Container
-      run: MYSQL_ROOT_PASSWORD=test_password docker compose up --build -d
+      run: MYSQL_ROOT_PASSWORD=test_password docker compose up --build -d -P
     - name: Install dependencies
       run: yarn install
       working-directory: ./sneak-sneaker-api  
