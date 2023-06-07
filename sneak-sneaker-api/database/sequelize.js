@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
 sequelize
   .query("select * from sneakers")
   .then(() => {
-    console.log("✅", fBold("Database connection successful!"));
+    console.log("✅", fBold("Database connection successful!\n"));
   })
   .catch((err) => {
     if (err.original.sqlMessage === undefined) {
@@ -44,13 +44,6 @@ sequelize
         fBold("'dbreset'")
       );
     }
-  })
-  .finally(() => {
-    console.log(
-      "\nIf you are in a dev environment,\ntype",
-      fBold("'help'"),
-      "for more information\n"
-    );
   });
 
 module.exports = sequelize;

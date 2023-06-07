@@ -1,11 +1,35 @@
 const { fBold } = require("./textFormatter");
 
-console.log(`
-----------------------------------------------
+function splash(test) {
+  if (!test) {
+    console.log(
+      `
+-----------------------------------------------
 \n
-                 `, fBold('SneakPeak'), `
-          👟     Sneaker API     👟
-                    1.0.0
+                  `,
+      fBold("SneakPeak"),
+      `
+           👟     Sneaker API     👟
+                     1.0.0
 \n
-----------------------------------------------
-`);
+-----------------------------------------------
+`
+    );
+  } else {
+    console.log(
+      `
+-----------------------------------------------
+\n
+                  `,
+      fBold("SneakPeak"),
+      `
+           👟     Sneaker API     👟
+                    Testing
+\n
+-----------------------------------------------
+`
+    );
+  }
+}
+
+module.exports = splash;

@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 const splashScreen = require("./utilities/splashScreen");
 const { getCredentials } = require("./utilities/credentialsManager");
-const { fColor } = require("./utilities/textFormatter");
+const { fBold, fColor } = require("./utilities/textFormatter");
 
-async function createServer() {
+async function createServer(test) {
+  splashScreen(test);
   await getCredentials();
 
   const express = require("express");
@@ -13,7 +14,7 @@ async function createServer() {
   const app = express();
 
   //if db is empty, insert sample data
-  InsertSamples();
+  await InsertSamples();
 
   app.use(morgan("dev"));
 
@@ -38,12 +39,21 @@ async function createServer() {
       });
   });
 
+  if (!test) {
+    console.log(
+      "If you are in a dev environment,\ntype",
+      fBold("'help'"),
+      "for more information\n"
+    );
+  }
+
   return app;
 }
 
+/* istanbul ignore next */
 if (require.main === module) {
   (async () => {
-    const server = await createServer();
+    const server = await createServer(false);
     server.listen(3000, () => {
       console.log(`Server running on port 3000\n`);
     });

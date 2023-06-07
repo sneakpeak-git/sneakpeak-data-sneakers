@@ -23,4 +23,4 @@ const config = {
   logging: false,
 };
 
-checkDatabaseConnection(config);
+await checkDatabaseConnection(config);
