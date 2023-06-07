@@ -25,7 +25,7 @@ jobs:
       working-directory: ./sneak-sneaker-api  
     - name: Wait for API to fully initialize
       run: sleep 15
-      - name: Run tests
+    - name: Run tests
       run: docker exec sneaker-api yarn test
     - name: SonarCloud run
       uses: sonarsource/sonarcloud-github-action@master
