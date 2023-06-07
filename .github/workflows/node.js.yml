@@ -28,4 +28,5 @@ jobs:
     - name: Run tests
       run: yarn test
       working-directory: ./sneak-sneaker-api
-
+    - name: Execute tests inside docker container
+      run: docker exec sneaker-api yarn test
