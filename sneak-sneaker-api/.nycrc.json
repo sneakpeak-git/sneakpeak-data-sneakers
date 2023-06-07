@@ -1,9 +1,4 @@
 {
-  "reporter": ["text-summary", "lcov"],
-  "exclude": [
-    "**/database/**",
-    "**/utilities/**",
-    "**/test/**"
-  ]
+  "reporter": ["text-summary", "lcov"]
 }
 
