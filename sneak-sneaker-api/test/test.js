@@ -11,10 +11,14 @@ let server;
 
 before(function (done) {
   this.timeout(3000);
-  createServer(true).then((createdServer) => {
-    server = createdServer;
-    setTimeout(done, 2000);
-  });
+  createServer(true)
+    .then((createdServer) => {
+      server = createdServer;
+      setTimeout(done, 2000);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
 describe("Sneakers Get All test\n", function () {
