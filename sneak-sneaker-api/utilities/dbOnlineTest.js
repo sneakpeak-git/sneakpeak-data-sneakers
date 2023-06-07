@@ -1,14 +1,14 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize } = require("sequelize");
 
 async function checkDatabaseConnection(config) {
   const sequelize = new Sequelize(config);
 
   try {
     await sequelize.authenticate();
-    console.log('MySQL started, loading app...');
+    console.log("MySQL started, loading app...");
     process.exit(0);
   } catch (error) {
-    console.log('MySQL is down. Retrying in 2 seconds...');
+    console.log("MySQL is down. Retrying in 2 seconds...");
     setTimeout(() => checkDatabaseConnection(config), 2000);
   }
 }
@@ -19,8 +19,8 @@ const config = {
   database: process.env.DATABASE,
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
-  dialect: 'mysql',
-  logging: false
+  dialect: "mysql",
+  logging: false,
 };
 
 checkDatabaseConnection(config);
