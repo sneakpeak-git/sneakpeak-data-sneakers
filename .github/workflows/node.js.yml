@@ -18,7 +18,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        fetch-depth: 0
     - name: Build and run API Docker Container
       run: MYSQL_ROOT_PASSWORD=test_password docker compose up --build -d
     - name: Install dependencies
