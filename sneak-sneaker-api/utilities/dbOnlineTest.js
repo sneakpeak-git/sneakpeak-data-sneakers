@@ -9,7 +9,7 @@ async function checkDatabaseConnection(config) {
     process.exit(0);
   } catch (error) {
     console.log("MySQL is down. Retrying in 2 seconds...");
-    setTimeout(() => checkDatabaseConnection(config), 2000);
+    setTimeout(() => void checkDatabaseConnection(config), 2000);
   }
 }
 
@@ -23,4 +23,9 @@ const config = {
   logging: false,
 };
 
-checkDatabaseConnection(config).then(() => {});
+checkDatabaseConnection(config).then(
+  () => {},
+  (error) => {
+    console.error(error);
+  }
+);

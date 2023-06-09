@@ -16,7 +16,16 @@ async function createServer(test) {
   //if db is empty, insert sample data
   await InsertSamples();
 
-  app.use(morgan("dev"));
+  if (test) {
+    morgan.token("pad", function () {
+      return "    ";
+    }); // Four spaces
+    app.use(
+      morgan(
+        ":pad:method :url :status :response-time ms - :res[content-length]"
+      )
+    );
+  } else app.use(morgan("dev"));
 
   app.get("/", (req, res) => {
     res.send(

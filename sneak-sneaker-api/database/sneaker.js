@@ -101,15 +101,7 @@ const InsertSamples = async () => {
       sneaker_id: 2,
       link: "https://i.imgur.com/VuFEMWU.png",
     });
-    // await Image.create({
-    //     sneaker_id: 2,
-    //     link: 'https://i.imgur.com/4Qbghpv.png'
-    // })
-    // await Image.create({
-    //     sneaker_id: 2,
-    //     link: 'https://i.imgur.com/c7ASyEw.png'
-    // })
-    console.log("✅", fBold("Sample data added to database\n"));
+    console.log("\n✅", fBold("Sample data added to database\n"));
   }
 };
 

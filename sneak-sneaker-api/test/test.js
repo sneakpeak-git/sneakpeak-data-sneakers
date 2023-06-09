@@ -21,27 +21,25 @@ before(function (done) {
     });
 });
 
-describe("Sneakers Get All test\n", function () {
-  it("should list all sneakers on /sneakers GET", function (done) {
-    chai
-      .request(server)
-      .get("/sneakers")
-      .end(function (err, res) {
+describe("App inside container working test\n", function () {
+  it("should return ok status on / in container app", function () {
+    return chai
+      .request(dockerHost)
+      .get("/")
+      .then(function (res) {
         res.should.have.status(200);
-        res.body.should.be.a("array");
-        done();
       });
   });
 });
 
-describe("Docker Sneakers Get All test\n", function () {
-  it("should list all sneakers on /sneakers GET docker", function (done) {
-    chai
-      .request(dockerHost)
+describe("Sneakers Get All test\n", function () {
+  it("should list all sneakers on /sneakers as an array", function () {
+    return chai
+      .request(server)
       .get("/sneakers")
-      .end(function (err, res) {
+      .then(function (res) {
         res.should.have.status(200);
-        done();
+        res.body.should.be.a("array");
       });
   });
 });
