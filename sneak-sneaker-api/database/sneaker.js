@@ -89,7 +89,7 @@ const InsertSamples = async () => {
       model: "DV1748-601",
       name: "Jordan 1 High OG",
       color: "University Red/Black/White",
-      release_date: "2007-11-24",
+      release_date: "2023-05-20",
       description:
         "This sneaker has been added to the SnaekPeak database as a sample entry.",
     });

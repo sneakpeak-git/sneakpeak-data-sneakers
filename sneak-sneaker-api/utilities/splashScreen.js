@@ -10,7 +10,7 @@ function splash(test) {
       fBold("SneakPeak"),
       `
            👟     Sneaker API     👟
-                     1.0.0
+                     1.0.1
 \n
 -----------------------------------------------
 `

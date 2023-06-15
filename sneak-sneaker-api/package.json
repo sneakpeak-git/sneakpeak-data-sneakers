@@ -1,6 +1,6 @@
 {
   "name": "sneak-sneaker-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The SneakPeak API for sneaker data storage.",
   "main": "index.js",
   "scripts": {
