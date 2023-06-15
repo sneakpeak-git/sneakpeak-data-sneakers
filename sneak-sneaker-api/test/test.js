@@ -32,7 +32,7 @@ describe("App inside container working test\n", function () {
   });
 });
 
-describe("Sneakers Get All test\n", function () {
+describe("Sneakers Get tests\n", function () {
   it("should list all sneakers on /sneakers as an array", function () {
     return chai
       .request(server)
@@ -40,6 +40,23 @@ describe("Sneakers Get All test\n", function () {
       .then(function (res) {
         res.should.have.status(200);
         res.body.should.be.a("array");
+      });
+  });
+  it("should list an existing sneaker on /sneakers/:id as an object", function () {
+    return chai
+      .request(server)
+      .get("/sneakers/1")
+      .then(function (res) {
+        res.should.have.status(200);
+        res.body.should.be.a("object");
+      });
+  });
+  it("should return 404 on /sneakers/:id for non-existent sneaker", function () {
+    return chai
+      .request(server)
+      .get("/sneakers/999999")
+      .then(function (res) {
+        res.should.have.status(404);
       });
   });
 });

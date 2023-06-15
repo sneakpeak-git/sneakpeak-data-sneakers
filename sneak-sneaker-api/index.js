@@ -9,8 +9,11 @@ async function createServer(test) {
 
   const express = require("express");
   const morgan = require("morgan");
-  const commands = require("./utilities/commands");
+  const listenForCommands = require("./utilities/commands");
   const { Sneaker, Image, InsertSamples } = require("./database/sneaker");
+
+  listenForCommands();
+
   const app = express();
 
   //if db is empty, insert sample data
@@ -39,6 +42,24 @@ async function createServer(test) {
     })
       .then((sneakers) => {
         res.json(sneakers);
+      })
+      .catch((err) => {
+        if (err.toString().includes("HostNotFoundError"))
+          console.error(fColor("Could not connect to database", "red"));
+        else console.error(err);
+        res.status(500).json({ message: "An error occurred" });
+      });
+  });
+
+  app.get("/sneakers/:id", (req, res) => {
+    const id = req.params.id;
+    Sneaker.findByPk(id, { include: [Image] })
+      .then((sneaker) => {
+        if (sneaker) {
+          res.json(sneaker);
+        } else {
+          res.status(404).json({ message: `Sneaker with ID: ${id} not found` });
+        }
       })
       .catch((err) => {
         if (err.toString().includes("HostNotFoundError"))
