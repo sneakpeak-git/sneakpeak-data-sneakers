@@ -81,7 +81,7 @@ const InsertSamples = async () => {
       color: "White",
       release_date: "2007-11-24",
       description:
-        "This sneaker has been added to the SnaekPeak database as a sample entry.",
+        "This sneaker has been added to the SneakPeak database as a sample entry.",
       extra: "Comes with 2X Af1 Branded Lace Dubrae (Attached)",
     });
     await Sneaker.create({
@@ -91,7 +91,7 @@ const InsertSamples = async () => {
       color: "University Red/Black/White",
       release_date: "2023-05-20",
       description:
-        "This sneaker has been added to the SnaekPeak database as a sample entry.",
+        "This sneaker has been added to the SneakPeak database as a sample entry.",
     });
     await Image.create({
       sneaker_id: 1,

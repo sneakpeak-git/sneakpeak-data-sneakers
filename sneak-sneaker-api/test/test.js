@@ -54,7 +54,7 @@ describe("Sneakers Get tests\n", function () {
   it("should return 404 on /sneakers/:id for non-existent sneaker", function () {
     return chai
       .request(server)
-      .get("/sneakers/999999")
+      .get("/sneakers/0")
       .then(function (res) {
         res.should.have.status(404);
       });

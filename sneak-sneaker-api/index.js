@@ -8,6 +8,7 @@ async function createServer(test) {
   await getCredentials();
 
   const express = require("express");
+  const cors = require("cors");
   const morgan = require("morgan");
   const listenForCommands = require("./utilities/commands");
   const { Sneaker, Image, InsertSamples } = require("./database/sneaker");
@@ -15,6 +16,9 @@ async function createServer(test) {
   listenForCommands();
 
   const app = express();
+
+  //fixes cors errors
+  app.use(cors());
 
   //if db is empty, insert sample data
   await InsertSamples();
