@@ -48,10 +48,13 @@ For the development environment you need tot set up a MySQL server first:
 
 ### Run your project
 
+- If you previously ran this app with Docker in the same folder, it is required to delete `/sneakpeak-data-sneakers/sneak-sneaker-api/database/credentials.js` before starting the app.
 - Start the project by running
     ```
     yarn start
     ```
+    
+- For more information type `help` in terminal while running the app in development mode.
     
 ## Testing
 
