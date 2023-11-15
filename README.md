@@ -69,3 +69,4 @@ To run tests manually you can use `yarn test`. In this case you can dismiss the 
 [MySQL](https://dev.mysql.com/doc/)
 [Docker](https://docs.docker.com/)
 [Mocha](https://mochajs.org/)
+ 
